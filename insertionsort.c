@@ -1,4 +1,6 @@
 //INSERTION SORTING ALGORITHM.
+//Youtube Channel help: https://www.youtube.com/watch?v=i-SKeOcBwko
+//Tutorials Point Help : https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
 //WRITTEN ON 14-11-2017
 #include <stdio.h>
 #include <stdbool.h>
@@ -28,7 +30,7 @@ void display (){
 	printf("]\n");
 
 }
-void insertionsort(int n){
+/*void insertionsort(int n){
 
 for (int p=0;p<MAX;p++)
 	{
@@ -42,11 +44,31 @@ for (int p=0;p<MAX;p++)
 	}
 	display();
 
-}
+}*/
 
+void insertionSort(int A[], int n){
+
+	int holePosition;
+	int valueToInsert;
+	for (int i=0;i<n;i++)
+		{
+			valueToInsert=A[i];
+      			holePosition = i;
+			while(holePosition > 0 && A[holePosition-1] > valueToInsert)
+				{
+
+					A[holePosition] = A[holePosition-1];
+         				holePosition = holePosition -1;
+
+				}
+			A[holePosition] = valueToInsert;
+		}
+
+}
 int main(){
 
 	display();
-	insertionsort(MAX-1);
+	insertionSort(arr,MAX);
+	display();
 	return 0;
 }
